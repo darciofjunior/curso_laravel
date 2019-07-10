@@ -8,16 +8,19 @@
 
 @section('content')
     <div class="box-header">
-        <a href="{{route('saldo/deposito')}}" class="btn btn-primary">
+        <a href="{{route('admin/financeiro/saldo/deposito')}}" class="btn btn-primary">
             <i class="fa fa-cart-plus" aria-hidden="true"></i>
             Recarregar
         </a>
-        <a href="" class="btn btn-danger">
-            <i class="fa fa-cart-plus" aria-hidden="true"></i>
-            Sacar
-        </a>
+        @if($saldo > 0)
+            <a href="{{route('admin/financeiro/saldo/sacar')}}" class="btn btn-danger">
+                <i class="fa fa-cart-plus" aria-hidden="true"></i>
+                Sacar
+            </a>
+        @endif
     </div>
     <div class="box-body">
+        @include('admin/includes/alerts')
         <div class="small-box bg-green">
             <div class="inner">
                 <h3><sup style="font-size: 20px">R$ {{number_format($saldo, 2, ',', '.')}}</sup></h3>

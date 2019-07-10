@@ -1,16 +1,5 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
 Route::group(['prefix' => 'admin/produtos', 'namespace' => 'Admin', 'middleware' => 'auth'], function() {
     Route::get('/', 'ProdutoController@index')->name('admin/produtos/index');
     Route::get('/create', 'ProdutoController@create')->name('admin/produtos/create');
@@ -19,21 +8,18 @@ Route::group(['prefix' => 'admin/produtos', 'namespace' => 'Admin', 'middleware'
     Route::get('/{id}', 'ProdutoController@show')->name('admin/produtos/show');
     Route::put('{id}', 'ProdutoController@update')->name('admin/produtos/update');
     Route::delete('{id}', 'ProdutoController@destroy')->name('admin/produtos/destroy');
-    
-    /*GET 	/photos 	index 	photos.index
-    GET 	/photos/create 	create 	photos.create
-    POST 	/photos 	store 	photos.store
-    GET 	/photos/{photo} 	show 	photos.show
-    GET 	/photos/{photo}/edit 	edit 	photos.edit
-    PUT/PATCH 	/photos/{photo} 	update 	photos.update
-    DELETE 	/photos/{photo} 	destroy 	photos.destroy*/
 });
 
 Route::group(['prefix' => 'admin/financeiro', 'namespace' => 'Admin', 'middleware' => 'auth'], function() {
-    Route::get('saldo', 'SaldoController@index');
-    Route::get('saldo/deposito', 'SaldoController@deposito')->name('saldo/deposito');
-    Route::post('saldo/deposito', 'SaldoController@store')->name('saldo/deposito/store');
-    Route::get('historico', 'HistoricoController@index');
+    Route::get('saldo', 'SaldoController@index')->name('admin/financeiro/saldo/index');
+    
+    Route::get('saldo/deposito', 'SaldoController@deposito')->name('admin/financeiro/saldo/deposito');
+    Route::post('saldo/deposito', 'SaldoController@depositostore')->name('admin/financeiro/saldo/deposito/store');
+   
+    Route::get('saldo/sacar', 'SaldoController@sacar')->name('admin/financeiro/saldo/sacar');
+    Route::post('saldo/sacar', 'SaldoController@sacarstore')->name('admin/financeiro/saldo/sacar/store');
+    
+    Route::get('historico', 'HistoricoController@index')->name('admin/financeiro/historico/index');
 });
 
 Auth::routes();

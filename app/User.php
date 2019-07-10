@@ -6,6 +6,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Saldo;
+use App\Historico;
 
 class User extends Authenticatable
 {
@@ -40,5 +41,9 @@ class User extends Authenticatable
     
     public function saldo() {
         return $this->hasOne(Saldo::class);
+    }
+    
+    public function historicos() {
+        return $this->hasMany(Historico::class);
     }
 }
