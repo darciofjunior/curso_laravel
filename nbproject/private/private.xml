@@ -5,11 +5,9 @@
         <group>
             <file>file:/C:/xampp/php/www/curso_laravel/app/User.php</file>
             <file>file:/C:/xampp/php/www/curso_laravel/routes/web.php</file>
+            <file>file:/C:/xampp/php/www/curso_laravel/resources/views/admin/financeiro/historico/index.blade.php</file>
             <file>file:/C:/xampp/php/www/curso_laravel/resources/views/admin/financeiro/saldo/index.blade.php</file>
-            <file>file:/C:/xampp/php/www/curso_laravel/resources/views/admin/financeiro/saldo/deposito.blade.php</file>
-            <file>file:/C:/xampp/php/www/curso_laravel/app/Http/Requests/SaldoFormRequest.php</file>
             <file>file:/C:/xampp/php/www/curso_laravel/app/Http/Controllers/Admin/SaldoController.php</file>
-            <file>file:/C:/xampp/php/www/curso_laravel/app/Saldo.php</file>
             <file>file:/C:/xampp/php/www/curso_laravel/app/Historico.php</file>
         </group>
     </open-files>

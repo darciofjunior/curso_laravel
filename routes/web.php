@@ -19,7 +19,12 @@ Route::group(['prefix' => 'admin/financeiro', 'namespace' => 'Admin', 'middlewar
     Route::get('saldo/sacar', 'SaldoController@sacar')->name('admin/financeiro/saldo/sacar');
     Route::post('saldo/sacar', 'SaldoController@sacarstore')->name('admin/financeiro/saldo/sacar/store');
     
-    Route::get('historico', 'HistoricoController@index')->name('admin/financeiro/historico/index');
+    Route::get('saldo/transferir', 'SaldoController@transferir')->name('admin/financeiro/saldo/transferir');
+    Route::post('saldo/confirmartransferencia', 'SaldoController@confirmartransferencia')->name('admin/financeiro/saldo/confirmartransferencia');
+    Route::post('saldo/transferir', 'SaldoController@transferirstore')->name('admin/financeiro/saldo/transferir/store');
+    
+    Route::get('historico', 'SaldoController@historico')->name('admin/financeiro/historico/index');
+    Route::any('historicopesquisar', 'SaldoController@historicopesquisar')->name('admin/financeiro/historico/pesquisar');
 });
 
 Auth::routes();
