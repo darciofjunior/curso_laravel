@@ -141,6 +141,11 @@ return [
                 ],
             ],
         ],
+        [
+            'text'          => 'Meu Perfil',
+            'url'           => 'admin/meu_perfil',
+            'icon'          => 'database',
+        ],
     ],
 
     /*

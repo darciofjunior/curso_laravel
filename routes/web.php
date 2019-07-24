@@ -27,6 +27,11 @@ Route::group(['prefix' => 'admin/financeiro', 'namespace' => 'Admin', 'middlewar
     Route::any('historicopesquisar', 'SaldoController@historicopesquisar')->name('admin/financeiro/historico/pesquisar');
 });
 
+Route::group(['prefix' => 'admin/meu_perfil', 'namespace' => 'Admin', 'middleware' => 'auth'], function() {
+    Route::get('', 'UserController@profile')->name('admin/meu_perfil');
+    Route::post('profileatualizar', 'UserController@profileatualizar')->name('admin/meu_perfil/profileatualizar');
+});
+
 Auth::routes();
 
 Route::get('/', 'HomeController@index');
